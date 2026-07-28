@@ -28,6 +28,12 @@
   nix-homebrew = {
     enable = true;
     inherit user;
+    # This machine already had a real Homebrew install (with tmux, cmux,
+    # opensuperwhisper, etc.) before adopting Nix. autoMigrate hands that
+    # existing /opt/homebrew installation to nix-homebrew's management
+    # in place, keeping installed packages, instead of requiring a fresh
+    # uninstall-and-lose-everything start.
+    autoMigrate = true;
   };
   homebrew = {
     enable = true;
