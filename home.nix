@@ -21,6 +21,9 @@ in
   ];
   fonts.fontconfig.enable = true;
   home.sessionVariables.EDITOR = "nvim";
+  # Claude Code's native installer lives here, outside the Nix store;
+  # without this, home-manager's generated .zshrc won't find `claude`.
+  home.sessionPath = [ "${config.home.homeDirectory}/.local/bin" ];
 
   programs.zsh = {
     enable = true;
@@ -35,8 +38,9 @@ in
       push = "git push";
       pull = "git pull";
       m = "git switch main";
-      cc = "claude --dangerously-skip-permissions";
-      co = "codex --full-auto";
+      # cc/co intentionally omitted: they mapped to
+      # `claude --dangerously-skip-permissions` and `codex --full-auto`,
+      # which bypass every tool-use confirmation. Use `claude`/`codex` plain.
     };
   };
 

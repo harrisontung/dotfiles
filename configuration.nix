@@ -36,10 +36,19 @@
     onActivation.extraFlags = [ "--force" ];
     brews = [
       "herdr"
+      "gh"    # GitHub CLI
+      "node"  # also pulls in the AXI tools' npx runtime
+      "tmux"  # firstmate's default crew backend
     ];
     casks = [
       "wezterm"
-      "claude-code"
+      # claude-code intentionally omitted: this machine already runs the
+      # native installer at ~/.local/bin/claude, and the cask would add a
+      # second, competing install on PATH.
+      "chromedriver"
+      "cmux"                 # firstmate crew backend, tab-per-agent
+      "db-browser-for-sqlite"
+      "opensuperwhisper"      # local dictation; mic/accessibility already granted
     ];
   };
 }

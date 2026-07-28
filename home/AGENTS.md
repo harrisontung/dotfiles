@@ -13,3 +13,16 @@
 - Apply that same high standard to engineering excellence: lint, test failures, and test flakiness.
   If you see one, even if it is not caused by what you are working on right now, still get it fixed.
 - Before using "dynamic workflows", "ultra code" or any harness feature that immediately spawns a large swarm of subagents, always explain the tradeoffs and ask the user for explicit approval.
+
+## Account-specific preferences
+
+- Prefer AXI tools over heavier equivalents when the task fits: `npx -y gh-axi ...`
+  for GitHub reads/writes instead of raw `gh` when output would otherwise be long,
+  `npx -y chrome-devtools-axi ...` for browser automation, `npx -y quota-axi --json`
+  to check remaining subscription quota.
+  Why: this account is on Claude Pro, where the 5-hour window is shared between
+  Claude chat and Claude Code. AXI tools cut tokens per task substantially, which
+  directly extends how much work fits in a window.
+- Before spawning parallel agents or long autonomous runs, prefer the smallest
+  crew that can do the job, and say so plainly when a task is likely to be
+  expensive.
