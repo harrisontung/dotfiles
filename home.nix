@@ -38,9 +38,9 @@ in
       push = "git push";
       pull = "git pull";
       m = "git switch main";
-      # cc/co intentionally omitted: they mapped to
-      # `claude --dangerously-skip-permissions` and `codex --full-auto`,
-      # which bypass every tool-use confirmation. Use `claude`/`codex` plain.
+      # Bypasses every tool-use confirmation. Restored at the captain's
+      # explicit, repeated request; understand the risk before using it.
+      cc = "claude --dangerously-skip-permissions";
     };
   };
 
