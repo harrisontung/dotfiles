@@ -40,11 +40,17 @@
     onActivation.cleanup = "zap";  # remove anything not listed here
     onActivation.autoUpdate = true;
     onActivation.extraFlags = [ "--force" ];
+    taps = [
+      "kunchenguid/tap"  # source of the baby-menu cask
+    ];
     brews = [
       "herdr"
       "gh"    # GitHub CLI
       "node"  # also pulls in the AXI tools' npx runtime
       "tmux"  # firstmate's default crew backend
+      "cloudflared"
+      "ffmpeg"
+      "yt-dlp"
     ];
     casks = [
       "wezterm"
@@ -55,6 +61,7 @@
       "cmux"                 # firstmate crew backend, tab-per-agent
       "db-browser-for-sqlite"
       "opensuperwhisper"      # local dictation; mic/accessibility already granted
+      "kunchenguid/tap/baby-menu"  # menu-bar widgets app
     ];
   };
 }
