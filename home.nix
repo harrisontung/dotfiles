@@ -21,6 +21,9 @@ in
   ];
   fonts.fontconfig.enable = true;
   home.sessionVariables.EDITOR = "nvim";
+  # Homebrew's Node 26 fails every HTTPS request against the system CA store
+  # (UNABLE_TO_GET_ISSUER_CERT_LOCALLY); its own bundled CA list works.
+  home.sessionVariables.NODE_OPTIONS = "--use-bundled-ca";
   # Claude Code's native installer lives here, outside the Nix store;
   # without this, home-manager's generated .zshrc won't find `claude`.
   home.sessionPath = [ "${config.home.homeDirectory}/.local/bin" ];
